@@ -1,6 +1,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 
+/* =========================
+   GLOBAL STYLES
+========================= */
+
 :root {
   font-family: "Inter", sans-serif;
   color: #f7f8ff;
@@ -35,6 +39,7 @@ a {
 
 button {
   color: inherit;
+  cursor: pointer;
 }
 
 button:focus-visible,
@@ -42,6 +47,10 @@ a:focus-visible {
   outline: 2px solid #77caff;
   outline-offset: 4px;
 }
+
+/* =========================
+   PAGE FRAME
+========================= */
 
 .landing-page {
   min-height: 100vh;
@@ -62,13 +71,15 @@ a:focus-visible {
   border-radius: 17px;
   background:
     radial-gradient(ellipse at 76% 39%, #10275229, transparent 42%),
-    linear-gradient(120deg, #030a15 0%, #020814 55%, #030b19 100%);
+    linear-gradient(120deg, #030a15, #020814 55%, #030b19);
   box-shadow:
     inset 0 0 0 1px #7c9eff0c,
     0 0 35px #0d285016;
 }
 
-/* Navigation */
+/* =========================
+   NAVIGATION AND LOGO
+========================= */
 
 .navbar {
   position: relative;
@@ -85,24 +96,44 @@ a:focus-visible {
   display: inline-flex;
   align-items: center;
   justify-self: start;
-  gap: 4px;
+  gap: 8px;
   color: #f5f4ff;
   text-decoration: none;
-  font-size: clamp(21px, 2vw, 30px);
-  font-weight: 800;
-  letter-spacing: -1.4px;
   white-space: nowrap;
+  transition: opacity 200ms ease;
 }
 
-.logo-icon {
-  display: flex;
-  align-items: center;
-  color: #8b82ff;
-  filter: drop-shadow(0 0 10px #695dff40);
+.logo-image {
+  display: block;
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  object-fit: contain;
+  transition:
+    transform 250ms ease,
+    filter 250ms ease;
+}
+
+.logo-text {
+  font-size: clamp(21px, 2vw, 30px);
+  font-weight: 800;
+  letter-spacing: -1.2px;
 }
 
 .logo-accent {
-  color: #9e8aff;
+  background: linear-gradient(100deg, #a98aff, #5ebdff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.logo:hover {
+  opacity: 0.96;
+}
+
+.logo:hover .logo-image {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 8px #a04cff99);
 }
 
 .nav-links {
@@ -119,7 +150,6 @@ a:focus-visible {
   color: #e0e5f3;
   font-size: 12px;
   font-weight: 600;
-  cursor: pointer;
   transition: color 180ms ease;
 }
 
@@ -141,7 +171,6 @@ a:focus-visible {
   color: #090a1a;
   font-size: 12px;
   font-weight: 800;
-  cursor: pointer;
   box-shadow: 0 0 22px #8257f21b;
   transition:
     transform 180ms ease,
@@ -155,14 +184,15 @@ a:focus-visible {
 
 .menu-toggle {
   display: none;
+  padding: 8px;
   border: 1px solid #283c64;
   border-radius: 8px;
   background: #081326;
-  padding: 8px;
-  cursor: pointer;
 }
 
-/* Hero layout */
+/* =========================
+   HERO AND BACKGROUND IMAGE
+========================= */
 
 .hero {
   position: relative;
@@ -170,16 +200,14 @@ a:focus-visible {
   align-items: center;
   min-height: min(690px, calc(100vh - 160px));
   padding: 38px clamp(22px, 4.2vw, 58px) 27px;
-
   background-image:
     linear-gradient(
       90deg,
-      rgba(2, 7, 17, 0.18) 0%,
+      rgba(2, 7, 17, 0.18),
       rgba(2, 7, 17, 0.05) 48%,
-      transparent 100%
+      transparent
     ),
     url("/Background.png");
-
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -225,12 +253,7 @@ a:focus-visible {
 }
 
 .gradient-text {
-  background: linear-gradient(
-    100deg,
-    #699bff 0%,
-    #9275ff 53%,
-    #c17aff 100%
-  );
+  background: linear-gradient(100deg, #699bff, #9275ff 53%, #c17aff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -242,8 +265,11 @@ a:focus-visible {
   font-size: clamp(13px, 1.3vw, 17px);
   font-weight: 400;
   line-height: 1.65;
-  letter-spacing: 0.02px;
 }
+
+/* =========================
+   HERO BUTTONS
+========================= */
 
 .hero-buttons {
   display: flex;
@@ -264,7 +290,6 @@ a:focus-visible {
   border-radius: 10px;
   font-size: 13px;
   font-weight: 700;
-  cursor: pointer;
   transition:
     transform 180ms ease,
     border-color 180ms ease,
@@ -294,7 +319,9 @@ a:focus-visible {
   border-color: #8b83ff;
 }
 
-/* Right-side visual placeholder */
+/* =========================
+   ANIMATED WAVEFORM
+========================= */
 
 .hero-visual {
   position: absolute;
@@ -315,7 +342,7 @@ a:focus-visible {
   border-radius: 50%;
   background: radial-gradient(
     ellipse,
-    #124b9c24 0%,
+    #124b9c24,
     #542bba13 42%,
     transparent 72%
   );
@@ -327,14 +354,13 @@ a:focus-visible {
   left: -55%;
   right: 1%;
   top: 58%;
-  height: 190px; /* Increased from 115px */
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2px;
+  height: 190px;
   transform: translateY(-50%);
   opacity: 0.75;
-
   mask-image: linear-gradient(
     90deg,
     transparent,
@@ -345,24 +371,16 @@ a:focus-visible {
 }
 
 .wave-bar {
-    display: block;
+  display: block;
   flex: 1;
   min-width: 2px;
   max-width: 6px;
   max-height: 100%;
   border-radius: 5px;
-
-  background: linear-gradient(
-    to top,
-    #5148ff 0%,
-    #a34fff 45%,
-    #3bd9ff 100%
-  );
-
+  background: linear-gradient(to top, #5148ff, #a34fff 45%, #3bd9ff);
   box-shadow:
     0 0 8px #7856ff88,
     0 0 16px #3b83ff40;
-
   animation: waveform-pulse 1.2s ease-in-out infinite alternate;
 }
 
@@ -385,15 +403,18 @@ a:focus-visible {
     opacity: 1;
   }
 }
-/* Four feature labels */
+
+/* =========================
+   FEATURE STRIP
+========================= */
 
 .feature-strip {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   gap: clamp(12px, 2.4vw, 33px);
-  margin-top: clamp(36px, 5vw, 66px);
   max-width: 690px;
+  margin-top: clamp(36px, 5vw, 66px);
 }
 
 .feature-item {
@@ -406,12 +427,11 @@ a:focus-visible {
   border: 0;
   background: transparent;
   text-align: left;
-  cursor: pointer;
 }
 
 .feature-icon {
-  flex: 0 0 auto;
   display: grid;
+  flex: 0 0 auto;
   place-items: center;
   color: #d7e4ff;
   transition:
@@ -432,6 +452,10 @@ a:focus-visible {
   white-space: nowrap;
 }
 
+/* =========================
+   LOWER SECTION
+========================= */
+
 .bottom-line {
   height: 1px;
   margin: 0 clamp(22px, 4.2vw, 58px);
@@ -446,8 +470,6 @@ a:focus-visible {
   opacity: 0.65;
 }
 
-/* Minimal upload section */
-
 .upload-anchor {
   display: flex;
   align-items: center;
@@ -457,13 +479,13 @@ a:focus-visible {
 
 .upload-anchor-icon {
   display: grid;
-  place-items: center;
   flex: 0 0 42px;
+  place-items: center;
   height: 42px;
   border: 1px solid #314976;
   border-radius: 10px;
-  color: #a994ff;
   background: #0a1530;
+  color: #a994ff;
 }
 
 .upload-anchor div {
@@ -493,7 +515,6 @@ a:focus-visible {
   color: #dce7ff;
   font-size: 11px;
   font-weight: 600;
-  cursor: pointer;
 }
 
 .upload-anchor > button:hover {
@@ -508,7 +529,9 @@ a:focus-visible {
   clip-path: inset(50%);
 }
 
-/* Responsive layout */
+/* =========================
+   TABLET
+========================= */
 
 @media (min-width: 1500px) {
   .hero {
@@ -551,11 +574,6 @@ a:focus-visible {
     opacity: 0.78;
   }
 
-  .emotion-tag {
-    padding: 8px 10px;
-    font-size: 10px;
-  }
-
   .feature-strip {
     gap: 16px;
   }
@@ -573,6 +591,10 @@ a:focus-visible {
   }
 }
 
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 620px) {
   .landing-page {
     padding: 7px;
@@ -584,19 +606,23 @@ a:focus-visible {
   }
 
   .navbar {
-    min-height: 65px;
     grid-template-columns: 1fr auto auto;
     gap: 10px;
+    min-height: 65px;
     padding-inline: 15px;
   }
 
   .logo {
-    font-size: 22px;
-    letter-spacing: -1px;
+    gap: 7px;
   }
 
-  .logo-icon svg {
-    width: 25px;
+  .logo-image {
+    width: 31px;
+    height: 31px;
+  }
+
+  .logo-text {
+    font-size: 22px;
   }
 
   .menu-toggle {
@@ -605,11 +631,11 @@ a:focus-visible {
   }
 
   .nav-links {
-    display: none;
     position: absolute;
     top: 59px;
-    left: 10px;
     right: 10px;
+    left: 10px;
+    display: none;
     align-items: stretch;
     gap: 3px;
     padding: 9px;
@@ -625,15 +651,15 @@ a:focus-visible {
   }
 
   .nav-links button {
-    text-align: left;
     padding: 12px;
+    text-align: left;
   }
 
   .nav-cta {
     min-height: 36px;
+    gap: 4px;
     padding-inline: 10px;
     font-size: 10px;
-    gap: 4px;
   }
 
   .nav-cta svg {
@@ -652,9 +678,10 @@ a:focus-visible {
   }
 
   .eyebrow {
+    gap: 7px;
+    margin-bottom: 20px;
     font-size: 8px;
     letter-spacing: 1px;
-    margin-bottom: 20px;
   }
 
   .hero h1 {
@@ -666,8 +693,8 @@ a:focus-visible {
   .hero-description {
     position: relative;
     z-index: 2;
-    margin-top: 19px;
     max-width: 450px;
+    margin-top: 19px;
     font-size: 12px;
     line-height: 1.75;
   }
@@ -686,9 +713,9 @@ a:focus-visible {
   .primary-button,
   .secondary-button {
     min-height: 46px;
+    gap: 8px;
     padding-inline: 15px;
     font-size: 11px;
-    gap: 8px;
   }
 
   .hero-visual {
@@ -710,40 +737,16 @@ a:focus-visible {
   }
 
   .waveform {
-    left: 0;
-    right: 0;
     top: 52%;
+    right: 0;
+    left: 0;
     height: 90px;
     gap: 2px;
   }
 
   .wave-bar {
-    width: 2px;
     min-width: 2px;
-  }
-
-  .emotion-tags {
-    top: 4%;
-    right: 0;
-    gap: 5px;
-  }
-
-  .emotion-tag {
-    padding: 6px 9px;
-    font-size: 9px;
-    border-radius: 7px;
-  }
-
-  .anger {
-    margin-left: -13px;
-  }
-
-  .distress {
-    margin-left: 0;
-  }
-
-  .nervous {
-    margin-left: -8px;
+    width: 2px;
   }
 
   .feature-strip {
@@ -767,8 +770,8 @@ a:focus-visible {
 
   .upload-anchor {
     flex-wrap: wrap;
-    padding: 19px 16px;
     gap: 10px;
+    padding: 19px 16px;
   }
 
   .upload-anchor-icon {
@@ -786,17 +789,21 @@ a:focus-visible {
 
   .upload-anchor > button {
     width: 100%;
-    margin-top: 4px;
     min-height: 40px;
+    margin-top: 4px;
   }
 }
+
+/* =========================
+   ACCESSIBILITY
+========================= */
 
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
+    scroll-behavior: auto !important;
     animation: none !important;
     transition: none !important;
-    scroll-behavior: auto !important;
   }
 }
