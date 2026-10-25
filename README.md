@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🎙️ VoxTrace
 ### AI-Powered Speech Emotion Analysis for Cybercrime Investigations
 
@@ -427,5 +428,7 @@ Choose and add an appropriate open-source license before publicly distributing t
   <strong>VoxTrace</strong><br />
   Turning speech recordings into structured signals for human review.
 </p>
+=======
+>>>>>>> 712f4edc514aa2ed6832ebbf6e4eaddad64086dc
 
 
